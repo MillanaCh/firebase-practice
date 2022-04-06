@@ -1,12 +1,12 @@
 import { useState, useContext } from "react";
-import {FirestoreContext} from "../context/GeneralFirestore"
+import { FirestoreContext } from "../context/GeneralFirestore";
 function FormProducts() {
-    const {addProducts} = useContext(FirestoreContext)
+  const { addProduct } = useContext(FirestoreContext);
   const [newProduct, setNewProduct] = useState({
-    image: "",
     name: "",
     price: "",
   });
+  const [newImage, setNewImage] = useState("");
   return (
     <>
       <input
@@ -20,12 +20,11 @@ function FormProducts() {
         placeholder="price"
       />
       <input
-        onChange={(e) => setNewProduct({ ...newProduct, img: e.target.value })}
+        type="file"
+        onChange={(e) => setNewImage(e.target.files[0])}
         placeholder="add the img link"
       />
-      <button onClick={() => addProducts(newProduct)}>
-        Add Product
-      </button>
+      <button onClick={() => addProduct(newProduct, newImage)}>Add Product</button>
     </>
   );
 }
