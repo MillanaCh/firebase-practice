@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+/* css part */
+.app-header{
+  text-align: center;
+  margin-top: 150px;
+}
+.btn{
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(230, 97, 45);
+}
+.btn-log{
+  border-color: rgb(99, 182, 230);
+  background-color: rgb(99, 182, 230);
+  height:30px
+}
+.input{
+  width: 150px;
+  height:25px
+}
