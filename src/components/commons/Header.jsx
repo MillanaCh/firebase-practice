@@ -1,6 +1,10 @@
 import { Grid, Button, Box, Typography, CardMedia } from "@mui/material";
 import { Link } from "react-router-dom";
+import {useContext} from "react"
+import {CardContext} from "../../context/GeneralCard"
 function Header() {
+    const {allProductsInCard}  = useContext(CardContext)
+    const sumOfAllProducts = allProductsInCard.reduce((accum, product) => accum + product.qty, 0)
   return (
     <Grid container spacing={2} style={{ justifyContent: "space-around" }}>
       <Grid item sx={12} md={2}>
@@ -13,7 +17,7 @@ function Header() {
             <Link to="/" style={{textDecoration:"none", color: "black"}}><Typography sx={{minWidth:150}}>Home</Typography></Link>
             <Link to="/dashboard" style={{textDecoration:"none", color: "black"}}><Typography sx={{minWidth:150}}>Dashboard</Typography></Link>
             <Link to="/about" style={{textDecoration:"none", color: "black"}}><Typography sx={{minWidth:150}}>About Us</Typography></Link>
-            <Button color="secondary" variant="contained">CART 5 PRODUCTS</Button>
+            <Link to="/cart-description" style={{textDecoration:"none", color: "black"}}><Button color="secondary" variant="contained">CART {sumOfAllProducts} PRODUCTS</Button></Link>
         </Box>
       </Grid>
     </Grid>

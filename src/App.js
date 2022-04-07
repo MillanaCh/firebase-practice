@@ -6,6 +6,8 @@ import Home from "./Pages/Home";
 import Dashboard from "./Pages/Dashboard"
 import { Route, Routes } from "react-router-dom";
 import About from "./Pages/About"
+import CardProductList from "./Pages/CardProductList";
+import MakeAnOrder from "./Pages/MakeAnOrder";
 function App() {
   //3 main part log In logOut and register a user
   // const [newUser, setNewUser] = useState({ email: "", password: "" });
@@ -19,6 +21,8 @@ function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/dashboard" element={<Dashboard/>}/>
       <Route path="/about" element={<About/>}/>
+      <Route path="/cart-description" element={<CardProductList/>}/>
+      <Route path="/make-order" element={<MakeAnOrder/>}/>
     </Routes>
       {/* <div>
          <h1>Register</h1>
