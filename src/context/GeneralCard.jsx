@@ -1,6 +1,6 @@
-import { useContext , useState} from "react";
+import { createContext} from "react";
 
-export const CardContext = useContext([])
+export const CardContext = createContext([])
 const CardProvider = ({children}) => {
     const data = {}
     return(

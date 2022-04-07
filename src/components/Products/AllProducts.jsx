@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { FirestoreContext } from "../../context/GeneralFirestore";
-import Product from "./Products";
+import Product from "./Product";
 function AllProducts() {
   const { allProducts } = useContext(FirestoreContext);
   return (
