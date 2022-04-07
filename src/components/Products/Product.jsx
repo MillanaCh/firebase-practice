@@ -7,6 +7,7 @@ function Product({ id, data }) {
   const [qty, setQty] = useState(0);
   const {dispacher} = useContext(CardContext)
   const handlerAddToCard = () => {
+    setQty(0)
     dispacher({type: actions.ADDTOCARD, payload: {...data,id: id, qty: qty}})
   }
   return (
