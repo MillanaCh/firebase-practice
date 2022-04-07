@@ -2,6 +2,7 @@ import "./App.css";
 import {useState, useContext} from "react"
 import {GeneralAuthContext} from "./context/GeneralAuthContext"
 import FormProducts from "./components/FormProducts";
+import AllProducts from "./components/Products/AllProducts";
 
 function App() {
   //3 main part log In logOut and register a user
@@ -12,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <header className="app-header">
-       <div>
+       {/* <div>
          <h1>Register</h1>
          <input className="input" onChange={(e) => setNewUser({...newUser,email:e.target.value})} placeholder="type your email"/>
          <input className="input" onChange={(e) => setNewUser({...newUser,password:e.target.value})} placeholder="type your password"/>
@@ -26,7 +27,8 @@ function App() {
         <input className="input" onChange={(e) => setLoginUser({...loginUser,email:e.target.value})} placeholder="type your email"/>
         <input className="input" onChange={(e) => setLoginUser({...loginUser,password:e.target.value})} placeholder="type your password"/>
         <button  className="btn-log" onClick={() => logInWithEmail(loginUser.email, loginUser.password)}>Log In</button>
-       </div>
+       </div> */}
+       <AllProducts/>
        <FormProducts/>
       </header>
     </div>

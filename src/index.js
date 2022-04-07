@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import GeneralAuthProvider from "./context/GeneralAuthContext";
 import FirestoreProvider from "./context/GeneralFirestore";
+import CardProvider from "../src/context/GeneralCard"
 
 ReactDOM.render(
   <React.StrictMode>

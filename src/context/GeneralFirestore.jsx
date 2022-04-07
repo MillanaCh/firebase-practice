@@ -38,7 +38,7 @@ const FirestoreProvider = ({ children }) => {
   const getAllProducts = async () => {
       //we have object productsFromFirestore which have other files inside
     const productsFromFirestore = await getDocs(refCollection);
-    //console.log(productsFromFirestore);
+    console.log(productsFromFirestore);
     //filter all information inside productsFromFirestore we have docs
     setAllProducts(productsFromFirestore.docs.map((product) => ({
         data: product.data(),
@@ -49,7 +49,8 @@ const FirestoreProvider = ({ children }) => {
   useEffect(() => {
     getAllProducts()
   }, [])
-  getAllProducts();
+  //TODOS modify products
+  //DELETE products
   const data = {
     allProducts: allProducts,
     addProduct: addProduct,
