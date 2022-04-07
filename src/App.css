@@ -56,3 +56,16 @@
   height:25px
 }
 /* Main Page css part */
+.heroBackground{
+  display: flex;
+  height: 80vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://9to5mac.com/wp-content/uploads/sites/6/2021/09/macbook-air-vs-pro-comparison.jpg?quality=82&strip=all&w=1600');
+  background-size: cover;
+  justify-content: space-around;
+  align-items: center; 
+}
+.heroBackground h1 {
+  color: white;
+  font-size: 5rem;
+  font-family: sans-serif;
+}

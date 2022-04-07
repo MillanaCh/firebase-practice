@@ -5,7 +5,7 @@ export default function Dashboard() {
   return (
       <>
       <Header/>
-      <h1>this is dashboard</h1>
+      <h1>This is about</h1>
       </>
   )
 }

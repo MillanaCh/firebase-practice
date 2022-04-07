@@ -1,7 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import {CardContext} from "../../context/GeneralCard"
+import * as actions from "../../context/actions"
+
 
 function Product({ id, data }) {
   const [qty, setQty] = useState(0);
+  const {dispacher} = useContext(CardContext)
+  const handlerAddToCard = () => {
+    dispacher({type: actions.ADDTOCARD, payload: {...data,id: id, qty: qty}})
+  }
   return (
     <div>
         <h2>{data.name}</h2>
@@ -9,8 +16,8 @@ function Product({ id, data }) {
         <h3>{data.price}</h3>
         <button onClick={() =>setQty(prev => prev + 1)}>+</button>
         <span>{qty}</span>
-        <button onClick={() =>setQty(prev => prev + 1)}>-</button>
-        <button>Add to Card</button>
+        <button onClick={() =>setQty(prev => prev - 1)}>-</button>
+        <button onClick={() => handlerAddToCard()}>Add to Card</button>
     </div>
   );
 }
