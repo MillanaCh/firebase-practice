@@ -6,8 +6,10 @@ const cardReducer = (state, action) => {
   switch (action.type) {
     case actions.ADDTOCARD:
       return [...state, action.payload];
+    case actions.DELETEFROMCARD:
+      return state.filter(product => product.id !== action.payload)
     default:
-      return state;
+        return state
   }
 };
 const CardProvider = ({ children }) => {
