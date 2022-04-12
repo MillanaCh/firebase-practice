@@ -2,7 +2,10 @@ import React, {useContext} from 'react'
 import { FirestoreContext } from '../../context/GeneralFirestore'
 import {Grid, Button} from "@mui/material"
 function SeeProducts() {
-    const {allProducts} = useContext(FirestoreContext)
+    const {allProducts, deleteProduct} = useContext(FirestoreContext)
+    const handlerDelete = (id) => {
+      deleteProduct(id)
+    }
   return (
     <>
     <Grid container spacing={2}>
@@ -13,7 +16,7 @@ function SeeProducts() {
             <Grid item sx={2}>{data.proce}</Grid>
             <Grid item sx={2}><img src={data.img} width="100px"/></Grid>
             <Grid item sx={2}><Button>Modify</Button></Grid>
-            <Grid item sx={2}><Button>Delete</Button></Grid>
+            <Grid item sx={2}><Button onClick={() => handlerDelete(id)}>Delete</Button></Grid>
             </>
         ))
     }
