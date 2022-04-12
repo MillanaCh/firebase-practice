@@ -9,7 +9,7 @@ import CardProvider from "../src/context/GeneralCard";
 import { BrowserRouter as Router } from "react-router-dom";
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <FirestoreProvider>
       <GeneralAuthProvider>
         <CardProvider>
@@ -18,8 +18,7 @@ ReactDOM.render(
           </Router>
         </CardProvider>
       </GeneralAuthProvider>
-    </FirestoreProvider>
-  </React.StrictMode>,
+    </FirestoreProvider>,
   document.getElementById("root")
 );
 

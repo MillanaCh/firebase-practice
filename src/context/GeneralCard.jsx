@@ -11,7 +11,8 @@ const cardReducer = (state, action) => {
         if(matching){
             const newState = state.map(el => {
                 if(el.id === action.payload.id){
-                    el.qty++
+                    // el.qty++
+                    el.qty = el.qty + action.payload.qty
                 }
                 return el
             })

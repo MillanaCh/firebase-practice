@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import * as firebaseApp from "../firebase/configFirebase";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs, onSnapshot, doc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 //need reference
 const refCollection = collection(firebaseApp.firestore, "products");
@@ -49,6 +49,12 @@ const FirestoreProvider = ({ children }) => {
   useEffect(() => {
     getAllProducts()
   }, [])
+  //this is observer wchich check if there is new data located in database
+  //observer method if smth change in my database, useEffect for firbase
+  const referenceToForebase = doc(firebaseApp.firestore, "products", "name")
+  onSnapshot(referenceToForebase, (doc) => {
+    getAllProducts()
+  })
   //TODOS modify products
   //DELETE products
   const data = {

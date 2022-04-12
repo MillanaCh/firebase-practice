@@ -37,32 +37,33 @@
   }
 }
 /* css part */
-.app-header{
+.app-header {
   text-align: center;
   margin-top: 150px;
 }
-.btn{
+.btn {
   border: none;
   border-radius: 5px;
   background-color: rgb(230, 97, 45);
 }
-.btn-log{
+.btn-log {
   border-color: rgb(99, 182, 230);
   background-color: rgb(99, 182, 230);
-  height:30px
+  height: 30px;
 }
-.input{
+.input {
   width: 150px;
-  height:25px
+  height: 25px;
 }
 /* Main Page css part */
-.heroBackground{
+.heroBackground {
   display: flex;
   height: 80vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://9to5mac.com/wp-content/uploads/sites/6/2021/09/macbook-air-vs-pro-comparison.jpg?quality=82&strip=all&w=1600');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+    url("https://9to5mac.com/wp-content/uploads/sites/6/2021/09/macbook-air-vs-pro-comparison.jpg?quality=82&strip=all&w=1600");
   background-size: cover;
   justify-content: space-around;
-  align-items: center; 
+  align-items: center;
 }
 .heroBackground h1 {
   color: white;

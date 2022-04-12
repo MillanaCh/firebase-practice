@@ -2,8 +2,10 @@ import { Grid, Button, Box, Typography, CardMedia } from "@mui/material";
 import { Link } from "react-router-dom";
 import {useContext} from "react"
 import {CardContext} from "../../context/GeneralCard"
+import {GeneralAuthContext} from "../../context/GeneralAuthContext"
 function Header() {
     const {allProductsInCard}  = useContext(CardContext)
+    const {user, logOut}  = useContext(GeneralAuthContext)
     const sumOfAllProducts = allProductsInCard.reduce((accum, product) => accum + product.qty, 0)
   return (
     <Grid container spacing={2} style={{ justifyContent: "space-around" }}>
@@ -18,6 +20,7 @@ function Header() {
             <Link to="/dashboard" style={{textDecoration:"none", color: "black"}}><Typography sx={{minWidth:150}}>Dashboard</Typography></Link>
             <Link to="/about" style={{textDecoration:"none", color: "black"}}><Typography sx={{minWidth:150}}>About Us</Typography></Link>
             <Link to="/cart-description" style={{textDecoration:"none", color: "black"}}><Button color="secondary" variant="contained">CART {sumOfAllProducts} PRODUCTS</Button></Link>
+            {!user ? (<Link to="/login" style={{textDecoration:"none", color: "black", marginLeft:"5px"}}><Button variant="contained">LogIn</Button></Link>) : (<Button variant="contained" style={{backgroundColor:"red", marginLeft:"5px"}} onClick={() => logOut() }>LogOut</Button>)}
         </Box>
       </Grid>
     </Grid>
