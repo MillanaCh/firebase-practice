@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import * as firebaseApp from "../firebase/configFirebase";
 import { collection, addDoc, getDocs, onSnapshot, doc, deleteDoc } from "firebase/firestore";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from "firebase/storage";
 //need reference
 const refCollection = collection(firebaseApp.firestore, "products");
 export const FirestoreContext = createContext();
@@ -35,7 +35,7 @@ const FirestoreProvider = ({ children }) => {
     }
   };
   // this function get data from firestore and save in my State
-  const getAllProducts = async () => {
+  const getAllProducts = async() => {
       //we have object productsFromFirestore which have other files inside
     const productsFromFirestore = await getDocs(refCollection);
     //filter all information inside productsFromFirestore we have docs
@@ -59,7 +59,12 @@ const FirestoreProvider = ({ children }) => {
   const deleteProduct = async (id) => {//wait till response is coming
     // console.log(`I will delete the products with ${id}`)
     await deleteDoc(doc(firebaseApp.firestore,"products", id))//with collection product and id
-
+    deleteImage(deleteImage)
+  }
+  
+  const deleteImage = (imageName) => {
+    const refToImage = ref(firebaseApp.storage, `images/${imageName}`)
+    deleteObject(refToImage).then(() => {console.log("the image was deleted")}).catch((err) => console.log(err.message))
   }
   const data = {
     allProducts: allProducts,
