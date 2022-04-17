@@ -12,7 +12,9 @@ const FirestoreProvider = ({ children }) => {
     //image is represantion of photo
     const refHosting = ref(firebaseApp.storage, `images/${image.name}`);
     const uploadImage = uploadBytesResumable(refHosting, image);
+     //These changes in state, combined with the properties of the TaskSnapshot provide a simple yet powerful way to monitor upload events.snapshot for uploading image
     uploadImage.on(
+      //state changed is observer - наблюдатель
       "state_change",
       (snapshot) => {
         const progress =

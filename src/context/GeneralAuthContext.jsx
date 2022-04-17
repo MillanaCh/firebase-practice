@@ -3,6 +3,7 @@ import {createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithE
 import * as firebaseApp from "../firebase/configFirebase"
 
 export const GeneralAuthContext = createContext()
+
 const GeneralAuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
     onAuthStateChanged(firebaseApp.auth,(createdUser) => {

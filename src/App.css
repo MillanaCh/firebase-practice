@@ -1,55 +1,11 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 /* css part */
+*{
+  font-family: 'Questrial', sans-serif;
+}
 .app-header {
   text-align: center;
   margin-top: 150px;
-}
-.btn {
-  border: none;
-  border-radius: 5px;
-  background-color: rgb(230, 97, 45);
-}
-.btn-log {
-  border-color: rgb(99, 182, 230);
-  background-color: rgb(99, 182, 230);
-  height: 30px;
 }
 .input {
   width: 150px;
@@ -58,9 +14,9 @@
 /* Main Page css part */
 .heroBackground {
   display: flex;
-  height: 80vh;
+  height: 70vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
-    url("https://9to5mac.com/wp-content/uploads/sites/6/2021/09/macbook-air-vs-pro-comparison.jpg?quality=82&strip=all&w=1600");
+    url("https://s.yimg.com/os/creatr-uploaded-images/2022-03/1d547bf0-9f0d-11ec-bedd-866406112b81");
   background-size: cover;
   justify-content: space-around;
   align-items: center;
@@ -70,3 +26,61 @@
   font-size: 5rem;
   font-family: sans-serif;
 }
+.supportBackground{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)),
+  url("https://www.apple.com/careers/images/teams/customer/hero-large/default@2x.jpg");
+  background-size: cover;
+  height: 62vh;
+  display: flex;
+  justify-content: space-around;
+  color:#313132;
+  align-items: center;
+}
+.btn-header{
+  background-color: #313132;
+  border: none;
+  color:rgb(212, 216, 219)
+}
+.link-part{
+  text-decoration:none;
+  min-width: 150px;
+  color: rgb(212, 216, 219);
+  font-size:13px
+}
+.link-part:hover{
+  color:white
+}
+.support-p{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding:25px;
+  margin: 10px;
+  line-height: 30px;
+}
+.article-support{
+  padding-left: 40px;
+}
+.article-center-support{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.article-center-support p{
+  width:30%;
+  line-height: 30px;
+}
+.footer-flex{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-self: center;
+  font-size:11px;
+  height: 40vh;
+  background-color: #e9e9e9;
+}
+.footer-flex p:hover{
+  text-decoration: underline;
+}
+
+

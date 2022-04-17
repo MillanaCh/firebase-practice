@@ -2,7 +2,7 @@ import "./App.css";
 import Home from "./Pages/Home";
 import Dashboard from "./Pages/Dashboard"
 import { Route, Routes } from "react-router-dom";
-import About from "./Pages/About"
+import Support from "./Pages/Support";
 import CardProductList from "./Pages/CardProductList";
 import MakeAnOrder from "./Pages/MakeAnOrder";
 import Login from "./Pages/Login";
@@ -14,7 +14,7 @@ function App() {
     <>
     <Routes>
       <Route path="/" element={<Home/>}/>
-      <Route path="/about" element={<About/>}/>
+      <Route path="/support" element={<Support/>}/>
       <Route path="/cart-description" element={<CardProductList/>}/>
       <Route path="/make-order" element={<MakeAnOrder/>}/>
       <Route path="/login" element={<Login/>}/>

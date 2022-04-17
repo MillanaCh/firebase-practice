@@ -4,6 +4,7 @@ import {Grid, List, ListItemButton, Divider} from "@mui/material"
 import { GeneralAuthContext } from '../context/GeneralAuthContext'
 import FormProducts from '../components/FormProducts'
 import { Navigate, Outlet , Link} from 'react-router-dom'
+import Footer from '../components/commons/Footer'
 export default function Dashboard() {
     const {user} = useContext(GeneralAuthContext)
   return (
