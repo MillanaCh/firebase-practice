@@ -8,8 +8,10 @@ export default function Home() {
   return (
     <>
       <Header />
+      <div className="background-all">
       <div className='heroBackground'></div>
       <Grid item xs={12}><AllProducts/></Grid>
+      </div>
       <Footer/>
     </>
   );

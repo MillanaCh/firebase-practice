@@ -14,7 +14,7 @@
 /* Main Page css part */
 .heroBackground {
   display: flex;
-  height: 70vh;
+  height: 80vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
     url("https://s.yimg.com/os/creatr-uploaded-images/2022-03/1d547bf0-9f0d-11ec-bedd-866406112b81");
   background-size: cover;
@@ -35,6 +35,9 @@
   justify-content: space-around;
   color:#313132;
   align-items: center;
+}
+.support-all-bg{
+  background-color: whitesmoke;
 }
 .btn-header{
   background-color: #313132;
@@ -84,9 +87,18 @@
 }
 /* Product */
 .btn-eachProduct{
+  border: none;
+  padding: 10px;  
+  margin: 5px;
+  background-color: #ffff;
 
 }
 .btn-addToCard{
+  border:none;
+  background-color: #ffff;
 
+}
+.background-all{
+  background-color: whitesmoke;
 }
 

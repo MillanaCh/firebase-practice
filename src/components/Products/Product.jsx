@@ -1,17 +1,15 @@
 import { useState, useContext } from "react";
 import { CardContext } from "../../context/GeneralCard";
 import * as actions from "../../context/actions";
-import { Grid, Card, CardContent, TextField } from "@mui/material";
+import { Card, CardContent, CardMedia } from "@mui/material";
 import styled, { ThemeProvider } from 'styled-components';
 import {createTheme, ThemeProvider as MuiThemeProvider,
 } from '@mui/material/styles';
-import { deepPurple } from '@mui/material/colors';
-import Avatar from '@mui/material/Avatar';
 
 const customTheme = createTheme({
   palette: {
     primary: {
-      main:"#f5f5f7",
+      main: "#ffff",
     },
   },
 });
@@ -20,7 +18,7 @@ const StyledCard = styled(Card)`
   ${({ theme }) => `
   cursor: pointer;
   background-color: ${theme.palette.primary.main};
-  transition: ${theme.transitions.create(['background-color', 'transform'], {
+  transition: ${theme.transitions.create('transform', {
     duration: theme.transitions.duration.standard,
   })};
   &:hover {
@@ -45,9 +43,14 @@ function Product({ id, data }) {
         <ThemeProvider theme={customTheme}>
       <StyledCard> 
       <CardContent>
-      <img src={data.img} width="160px" height="150px"/>
-      <h2>{data.name}</h2>
-      <h3>{data.price}</h3>
+      <CardMedia
+        component="img"
+        height="140"
+        image={data.img}
+        alt="apple products"
+      />
+      <h3>{data.name}</h3>
+      <p>{data.price}</p>
       <button className="btn-eachProduct" onClick={() => setQty((prev) => prev + 1)}>+</button>
       <span>{qty}</span>
       <button className="btn-eachProduct" onClick={() => setQty((prev) => prev - 1)}>-</button>
