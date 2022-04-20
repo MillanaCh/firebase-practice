@@ -2,9 +2,7 @@ import React, { useContext } from 'react'
 import Header from '../components/commons/Header'
 import {Grid, List, ListItemButton, Divider} from "@mui/material"
 import { GeneralAuthContext } from '../context/GeneralAuthContext'
-import FormProducts from '../components/FormProducts'
 import { Navigate, Outlet , Link} from 'react-router-dom'
-import Footer from '../components/commons/Footer'
 export default function Dashboard() {
     const {user} = useContext(GeneralAuthContext)
   return (
@@ -14,7 +12,7 @@ export default function Dashboard() {
             <>
             <Header/>
             <Grid container spacing={2}>
-                <Grid item sx={2} md={4}>
+                <Grid item xs={2} md={4}>
                     <List>
                         <ListItemButton>
                             <Link to="orders">Orders</Link>
@@ -30,7 +28,7 @@ export default function Dashboard() {
                         </ListItemButton>
                     </List>
                 </Grid>
-                <Grid item sx={2} md={6}><Outlet/></Grid>
+                <Grid item xs={2} md={6}><Outlet/></Grid>
             </Grid>
             </>
           ) : <Navigate to="/login"/>

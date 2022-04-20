@@ -6,10 +6,13 @@ function AllProducts() {
   const { allProducts } = useContext(FirestoreContext);
   return (
     <>
-      <h1>All Products</h1>
+        <h1>Store. The best way to buy the products you love.</h1>
+      <Grid container>
       {allProducts.map((el) => (
-        <Grid item sx={6} md={4} key={el.id}><Product id={el.id} data={el.data}/></Grid>
-      ))}
+        <Grid item xs={4} md={3} key={el.id} sx={{marginLeft:"30px"}}>
+          <Product id={el.id} data={el.data}/>
+        </Grid>))}
+      </Grid>
     </>
   );
 }

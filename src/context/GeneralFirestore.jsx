@@ -1,43 +1,32 @@
 import { createContext, useState, useEffect } from "react";
 import * as firebaseApp from "../firebase/configFirebase";
-import { collection, addDoc, getDocs, onSnapshot, doc, deleteDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs, onSnapshot, doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from "firebase/storage";
-//need reference
-const refCollection = collection(firebaseApp.firestore, "products");
+
 export const FirestoreContext = createContext();
+
+const refCollection = collection(firebaseApp.firestore, "products");
+const refCollectionOrders = collection(firebaseApp.firestore, "orders");
+
 const FirestoreProvider = ({ children }) => {
   const [allProducts, setAllProducts] = useState([]);
+  const [allOrders, setAllOrders] = useState([])
+
   //this function create my product
   const addProduct = async (newProduct, image) => {
     //image is represantion of photo
     const refHosting = ref(firebaseApp.storage, `images/${image.name}`);
     const uploadImage = uploadBytesResumable(refHosting, image);
-     //These changes in state, combined with the properties of the TaskSnapshot provide a simple yet powerful way to monitor upload events.snapshot for uploading image
     uploadImage.on(
-      //state changed is observer - наблюдатель
-      "state_change",
-      (snapshot) => {
-        const progress =
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      "state_change",(snapshot) => {
+        const progress =(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         console.log(`you have upload ${progress} %`);
-      },
-      (err) => {
-        console.log(err.message);
-      },
-      () =>
-        getDownloadURL(uploadImage.snapshot.ref).then((url) =>
-          addDoc(refCollection, { ...newProduct, img: url })
-        )
+      },(err) => {console.log(err.message)},() => getDownloadURL(uploadImage.snapshot.ref).then((url) => addDoc(refCollection, {...newProduct, img: url }))
     );
-    try {
-      await addDoc(refCollection, newProduct);
-      //add new Product which saves in firestore
-    } catch (err) {
-      console.log(err.message);
-    }
   };
+
   // this function get data from firestore and save in my State
-  const getAllProducts = async() => {
+  const getAllProducts = async () => {
       //we have object productsFromFirestore which have other files inside
     const productsFromFirestore = await getDocs(refCollection);
     //filter all information inside productsFromFirestore we have docs
@@ -47,21 +36,47 @@ const FirestoreProvider = ({ children }) => {
       }))
     );
   };
+  //this function will get all the orders that i have been created
+  const getAllOrders = async() => {
+    const ordersFromFirestore = await getDocs(refCollectionOrders)
+    setAllOrders(ordersFromFirestore.docs.map(el => ({data:el.data, id:el.id})))
+  }//we will call in component because we need only when we open the page
+
+  //save or create a new order
+  const saveOrder = async(ourCard, userData) => {
+    addDoc(refCollectionOrders, {...ourCard, ...userData})
+  }
+  //this is observer wchich check if there is new data located in database
+  //observer method if smth change in my database, useEffect for firbase
+  const unsub = onSnapshot(doc(refCollection, "products"), (doc) => {
+    getAllProducts()
+  });
+  // const referenceToForebase = doc(firebaseApp.firestore, "products", "name")
+  // onSnapshot(referenceToForebase, (doc) => {
+  //   getAllProducts()
+  // })
+  //TODOS modify products
   useEffect(() => {
     getAllProducts()
   }, [])
-  //this is observer wchich check if there is new data located in database
-  //observer method if smth change in my database, useEffect for firbase
-  const referenceToForebase = doc(firebaseApp.firestore, "products", "name")
-  onSnapshot(referenceToForebase, (doc) => {
-    getAllProducts()
-  })
-  //TODOS modify products
-  //DELETE products
-  const deleteProduct = async (id) => {//wait till response is coming
+
+  const modifyProduct = async(newData) => {
+    console.log(newData)
+        //   --- find image url image and delete it
+        //    ------ upload our new image
+        //      --- get the new url from the new image
+        //         ----update my file .
+    const refToDocument = doc(firebaseApp.firestore, "products",newData.id )
+    const dataClean = {...newData}
+    delete dataClean.id
+    updateDoc(refToDocument, {...dataClean})
+      
+  }
+  //DELETE products will check what product we want tot delete
+  const deleteProduct = async (id, imageToDelete) => {//wait till response is coming
     // console.log(`I will delete the products with ${id}`)
     await deleteDoc(doc(firebaseApp.firestore,"products", id))//with collection product and id
-    deleteImage(deleteImage)
+    deleteImage(imageToDelete)
   }
   
   const deleteImage = (imageName) => {
@@ -71,7 +86,11 @@ const FirestoreProvider = ({ children }) => {
   const data = {
     allProducts: allProducts,
     addProduct: addProduct,
-    deleteProduct: deleteProduct
+    deleteProduct: deleteProduct,
+    modifyProduct: modifyProduct,
+    saveOrder:saveOrder,
+    getAllOrders:getAllOrders,
+    allOrders:allOrders
   };
   return (
     <FirestoreContext.Provider value={data}>

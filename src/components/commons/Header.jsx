@@ -15,12 +15,12 @@ function Header() {
     <>
     <div style={{backgroundColor:"#424245", height:"60px"}}></div>
     <Grid container spacing={2} style={{justifyContent: "space-around", backgroundColor:"#313132"}}>
-      <Grid item sx={12} md={2}>
+      <Grid item xs={12} md={2}>
         <Link to="/">
           <img src="https://financialit.net/sites/default/files/apple-logo-grey-880x625_0.png" width="50px"/>
         </Link>
       </Grid>
-      <Grid item sx={12} md={10} style={{display:"flex", alignItems:"center", textAlign:"center", justifyContent: "space-between"}}>
+      <Grid item xs={12} md={10} style={{display:"flex", alignItems:"center", textAlign:"center", justifyContent: "space-between"}}>
         <Box sx={{display:"flex", alignItems:"center", textAlign:"center"}}>
             <Link to="/" className="link-part">Store</Link>
             <Link to="/dashboard" className="link-part">Dashboard</Link>
