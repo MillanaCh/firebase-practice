@@ -12,18 +12,18 @@ export default function Dashboard() {
             <>
             <Header/>
             <Grid container spacing={2}>
-                <Grid item xs={2} md={4}>
+                <Grid item xs={4} md={3}>
                     <List>
                         <ListItemButton>
-                            <Link to="orders">Orders</Link>
+                            <Link to="see-product" className='link-dashboard'>All Products</Link>
                             <Divider/>
                         </ListItemButton>
                         <ListItemButton>
-                            <Link to="add-product">Add Product</Link>
+                            <Link to="add-product" className='link-dashboard'>Add Product</Link>
                             <Divider/>
                         </ListItemButton>
                         <ListItemButton>
-                            <Link to="see-product">All Product</Link>
+                            <Link to="orders" className='link-dashboard'>Orders</Link>
                             <Divider/>
                         </ListItemButton>
                     </List>

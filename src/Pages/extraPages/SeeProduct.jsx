@@ -29,15 +29,20 @@ function SeeProducts() {
     }
   return (
     <>
-    <Grid container spacing={2}>
+    <Grid container spacing={2} sx={{margin:"20px", padding:"10px"}}>
+            <Grid item xs={2} md={3}>Name of product</Grid>
+            <Grid item xs={3} md={3}>Image of product</Grid>
+            <Grid item xs={2} md={2}>Price</Grid>
+            <Grid item xs={3} md={2}>Modify</Grid>
+            <Grid item xs={2} md={2}>Delete</Grid>
     {
         allProducts.map(({data, id}) => (
             <>
-            <Grid item xs={2}>{data.name}</Grid>
-            <Grid item xs={3}><img src={data.img} width="100px"/></Grid>
-            <Grid item xs={2}>{data.price}</Grid>
-            <Grid item xs={3}><Button onClick={() => handlerEdit({...data, id:id})}>Modify</Button></Grid>
-            <Grid item xs={2}><Button onClick={() => handlerDelete(id, data.img)}>Delete</Button></Grid>
+            <Grid item xs={2} md={3} sx={{alignSelf:"center"}}>{data.name}</Grid>
+            <Grid item xs={3} md={3}><img src={data.img} width="100px"/></Grid>
+            <Grid item xs={2} md={2} sx={{alignSelf:"center"}}>{data.price}</Grid>
+            <Grid item xs={3} md={2} sx={{alignSelf:"center"}}><Button onClick={() => handlerEdit({...data, id:id})}>Modify</Button></Grid>
+            <Grid item xs={2} md={2} sx={{alignSelf:"center"}}><Button onClick={() => handlerDelete(id, data.img)}>Delete</Button></Grid>
             </>
         ))
     }

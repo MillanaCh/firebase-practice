@@ -4,6 +4,7 @@ import { GeneralAuthContext } from '../context/GeneralAuthContext'
 import {Grid, FormControl, Input, Button} from "@mui/material"
 import Header from '../components/commons/Header'
 import {Navigate} from "react-router-dom"
+import { IoEyeSharp } from 'react-icons/io5';
 
 function Login() {
     const [seePassword, setSeePassword] = useState(false)
@@ -21,20 +22,21 @@ function Login() {
       {!user ? (
          <>
       <Header/>
-      <Grid container spacing={2}>
+      <h2 style={{textAlign:"center"}}>Login</h2>
+      <Grid container spacing={2} sx={{textAlign:"center"}}>
           <Grid item xs={12}>
               <FormControl>
-                  <Input placeholder='Write your email' onChange={(e) => setLoginInfo({...loginInfo, email: e.target.value})}></Input>
+                  <Input sx={{width:"400px"}} placeholder='Write your email' onChange={(e) => setLoginInfo({...loginInfo, email: e.target.value})}></Input>
+              </FormControl>
+          </Grid>
+          <Grid item xs={12}>
+              <FormControl sx={{display:"block"}}>
+                  <Input sx={{width:"340px"}}  type={seePassword ? "text" : "password"} placeholder='Write your password' onChange={(e) => setLoginInfo({...loginInfo, password: e.target.value})}></Input><Button onClick={() => setSeePassword(!seePassword)}><IoEyeSharp/></Button>
               </FormControl>
           </Grid>
           <Grid item xs={12}>
               <FormControl>
-                  <Input type={seePassword ? "text" : "password"} placeholder='Write your password' onChange={(e) => setLoginInfo({...loginInfo, password: e.target.value})}></Input><Button onClick={() => setSeePassword(!seePassword)}>See</Button>
-              </FormControl>
-          </Grid>
-          <Grid item xs={12}>
-              <FormControl>
-                 <Button onClick={() => handlerLogin()}>LogIn</Button>
+                 <button className="btn-login" onClick={() => handlerLogin()}>Login</button>
               </FormControl>
           </Grid>
       </Grid>

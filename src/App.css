@@ -101,4 +101,19 @@
 .background-all{
   background-color: whitesmoke;
 }
-
+/* Dashboard */
+.link-dashboard{
+  text-decoration: none;
+  padding: 10px;
+  color:black;
+  cursor: pointer;
+}
+/* Login part */
+.btn-login{
+  border:none;
+  padding: 6px;
+  color:white;
+  background-color: #424245;
+  font-size: 15px;
+  border-radius: 6px;
+}
