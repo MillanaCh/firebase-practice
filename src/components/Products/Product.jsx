@@ -45,7 +45,7 @@ function Product({ id, data }) {
       <CardContent>
       <CardMedia
         component="img"
-        height="140"
+        height="190"
         image={data.img}
         alt="apple products"
       />

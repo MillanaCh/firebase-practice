@@ -38,12 +38,12 @@ function SeeProducts() {
     {
         allProducts.map(({data, id}) => (
             <>
-            <Grid item xs={2} md={3} sx={{alignSelf:"center"}}>{data.name}</Grid>
-            <Grid item xs={3} md={3}><img src={data.img} width="100px"/></Grid>
-            <Grid item xs={2} md={2} sx={{alignSelf:"center"}}>{data.price}</Grid>
-            <Grid item xs={3} md={2} sx={{alignSelf:"center"}}><button className="btn-login" onClick={() => handlerEdit({...data, id:id})}>Modify</button></Grid>
-            <Grid item xs={2} md={2} sx={{alignSelf:"center"}}><button className="btn-login" onClick={() => handlerDelete(id, data.img)}>Delete</button></Grid>
-            </>
+             <Grid item xs={2} md={3} sx={{alignSelf:"center"}}>{data.name}</Grid>
+             <Grid item xs={3} md={3}><img src={data.img} width="100px"/></Grid>
+             <Grid item xs={2} md={2} sx={{alignSelf:"center"}}>{data.price}</Grid>
+             <Grid item xs={3} md={2} sx={{alignSelf:"center"}}><button className="btn-login" onClick={() => handlerEdit({...data, id:id})}>Modify</button></Grid>
+             <Grid item xs={2} md={2} sx={{alignSelf:"center"}}><button className="btn-login" onClick={() => handlerDelete(id, data.img)}>Delete</button></Grid>
+           </>
         ))
     }
     </Grid>

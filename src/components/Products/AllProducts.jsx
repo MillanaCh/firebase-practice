@@ -8,7 +8,7 @@ function AllProducts() {
     <>
       <Grid container>
       {allProducts.map((el) => (
-        <Grid item xs={3} md={2} key={el.id} sx={{margin:"30px", height:"100vh"}}>
+        <Grid item xs={3} md={2} key={el.id} sx={{margin:"17px"}}>
           <Product id={el.id} data={el.data}/>
         </Grid>))}
       </Grid>
